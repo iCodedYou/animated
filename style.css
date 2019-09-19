@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+ 
+.container {  
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 50px;
+}
+.hover-cut {
+  color: #333;
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+  transform: skewX(0deg) translateX(0px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.hover-cut:hover {
+  transform: skewX(-15deg) translateX(18px);
+  color: aquamarine;
+}
+.hover-cut::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  width: 0%;
+  background: #fff;
+  overflow: hidden;
+  transition: 0.3s;
+  z-index: 1;
+  transform: rotate(5deg);
+}
+.hover-cut:hover::before {
+  width: 110%;
+  left: -5%;
+}
+.hover-cut::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -5%;
+  top: 0;
+  height: 50%;
+  overflow: hidden;
+  transform: skewX(0deg);
+  background: #fff;
+  width: 110%;
+  transition: 0.3s;
+  color: #333;
+}
+.hover-cut:hover::after {
+  transform: skewX(25deg) translateX(-15px);
+  color: aqua;
+}
